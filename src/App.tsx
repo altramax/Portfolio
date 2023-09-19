@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import LandingPage from './Component/LandingPage/LandingPage'
+import "./App.css";
+import LandingPage from "./Component/LandingPage/LandingPage";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <LandingPage/>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
