@@ -37,20 +37,42 @@ const LandingPageStyle = styled.div`
     }
 
     .dot__container {
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      gap: 12px;
+      
       margin-top: 10px;
+      // width: 100%;
 
       .dot {
-        height: 25px;
-        width: 25px;
+        height: 15px;
+        width: 15px;
         border-radius: 50%;
-        background-color: red;
       }
-      p {
-        font-size: 16px;
+
+      .dot__group{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .--active {
+        .dot {
+          background-color: blue;
+          border: none;
+        }
+        p {
+          font-size: 16px;
+          color: blue;
+        }
+      }
+
+      .--inactive {
+        .dot {
+          border: 1px solid grey;
+        }
+        p {
+          font-size: 12px;
+          color: grey;
+        }
       }
     }
   }

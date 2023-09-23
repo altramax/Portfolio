@@ -6,8 +6,41 @@ import github from "../../Assets/images/github.svg";
 import instagram from "../../Assets/images/instagram.svg";
 import twitter from "../../Assets/images/twitter.svg";
 import { Link } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+import { useEffect, useState, useRef } from "react";
 
 const LandingPage = (): JSX.Element => {
+  // const { ref: about, inView: aboutElement } = useInView();
+  // const { ref: experience, inView: experienceElement } = useInView();
+  // const { ref: projects, inView: projectsElement } = useInView();
+
+  const [current, setCurrent] = useState<string>("about");
+  const about = useRef<any>();
+  const experience = useRef<any>();
+  const projects = useRef<any>();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      const entry = entries[0];
+      console.log("entry", entry);
+      console.log("entry.isIntersecting", entry.isIntersecting);
+    });
+
+    observer.observe(about.current);
+  }, []);
+
+  // useEffect(() => {
+  //   if (aboutElement === true && experienceElement === true) {
+  //     setCurrent("about");
+  //   } else if (experienceElement === true) {
+  //     setCurrent("experience");
+  //   } else if (projectsElement === true) {
+  //     setCurrent("projects");
+  //   } else {
+  //     setCurrent("");
+  //   }
+  // }, []);
+
   return (
     <LandingPageStyle>
       <header>
@@ -19,20 +52,39 @@ const LandingPage = (): JSX.Element => {
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
             placeat facilis harum eligendi. Veritatis saepe quia mollitia quae
+            nn
           </p>
         </div>
         <div>
           <div className="dot__container">
-            <div className="dot"></div>
-            <p>About</p>
+            <div
+              className={`dot__group ${
+                current === "about" ? "--active" : "--inactive"
+              }`}
+            >
+              <div className="dot"></div>
+              <p>About</p>
+            </div>
           </div>
           <div className="dot__container">
-            <div className="dot"></div>
-            <p>Experience</p>
+            <div
+              className={`dot__group ${
+                current === "experience" ? "--active" : "--inactive"
+              }`}
+            >
+              <div className="dot"></div>
+              <p>Experience</p>
+            </div>
           </div>
           <div className="dot__container">
-            <div className="dot"></div>
-            <p>Projects</p>
+            <div
+              className={`dot__group ${
+                current === "projects" ? "--active" : "--inactive"
+              }`}
+            >
+              <div className="dot"></div>
+              <p>Projects</p>
+            </div>
           </div>
         </div>
         <div className="socials__container">
@@ -68,7 +120,6 @@ const LandingPage = (): JSX.Element => {
             labore deserunt, facilis hic! Eum voluptatibus pariatur ab.
           </p>
         </div>
-
         <Projects
           text="Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         Ipsam nobis dolore corporis delectus. Recusandae eos nostrum et at
@@ -78,7 +129,7 @@ const LandingPage = (): JSX.Element => {
         dolorum culpa temporibus nesciunt quisquam."
           image={ecommerce}
         />
-        <p>
+        <p ref={about}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eum nam
           facere expedita quod voluptas pariatur ipsam. Eligendi cumque
           blanditiis magni amet cum voluptas, repellendus, natus eum omnis id,
@@ -106,61 +157,78 @@ const LandingPage = (): JSX.Element => {
           minima magni placeat reiciendis voluptatibus cumque nobis? Cum ab
           nihil quis? Ratione tempore culpa iusto neque laboriosam vero
           excepturi, iure voluptas aliquid qui deleniti dicta quasi ipsa
-          distinctio rem porro assumenda, eligendi, nemo hic soluta eos aliquam.
-          Fugiat error praesentium cum voluptate non nulla vero enim.
-          Distinctio, totam eligendi. Explicabo numquam nulla, aperiam
-          repellendus deleniti ducimus vero cumque magnam quas aspernatur autem
-          molestiae accusantium suscipit, quis illum voluptatibus! Perferendis
-          ullam, error autem exercitationem sunt corrupti modi eius omnis
-          expedita totam quasi iure dicta, debitis dolorem eligendi, quos ex
-          nesciunt similique iste illo deserunt sit rerum numquam? Ratione sequi
-          architecto dolorum! Illo doloribus animi minus, ullam ipsa labore
-          officia deserunt nisi totam nesciunt quia inventore deleniti odit
-          magni, fugiat ipsum quod repellat? Quo dolore ea magni commodi atque
-          cumque, veritatis facilis, tempore dicta neque qui blanditiis sequi
-          autem aut sed pariatur id eaque! Quo vero repellendus voluptas beatae
-          perspiciatis amet minima perferendis molestias laudantium veniam!
-          Repellendus doloribus aliquam odit sint voluptatibus voluptatem
-          aperiam voluptas unde deleniti? Dicta doloremque iste enim omnis alias
-          asperiores illum, error aperiam veniam eos impedit excepturi
-          reprehenderit fugiat quaerat ea vero suscipit odio at deleniti ratione
-          quod. Rerum culpa minus autem labore magni consequuntur nobis
-          laudantium in incidunt deleniti necessitatibus, corrupti nisi eius
-          ratione. Repellat velit quidem corrupti natus. Labore quae
-          necessitatibus in deserunt repellat hic, eius commodi officiis
-          voluptates suscipit animi dolore nemo aut libero cupiditate quisquam
-          atque dolores! Commodi magni ut nihil aliquid numquam libero non iure,
-          voluptatem odio. Sunt voluptates voluptatibus impedit dolore molestias
-          quod ex assumenda aut odit doloribus? Dolorem illum atque vel
-          molestiae neque placeat iusto accusantium est ratione? Amet doloribus
-          atque unde exercitationem iste. Dolores illum blanditiis eius
-          voluptatum qui in amet perspiciatis ex dignissimos! Labore, culpa.
-          Error atque nesciunt sapiente aliquid sed provident deserunt pariatur,
-          ut perferendis? Debitis perspiciatis molestiae minima rem voluptatibus
-          voluptates accusantium hic totam delectus fugit exercitationem saepe
-          corporis deleniti aut quasi optio quis assumenda, perferendis aliquam,
-          repellat reiciendis sunt! Exercitationem, laboriosam omnis minus sit
-          corrupti dolores nostrum sunt aliquid repellendus molestias nobis
-          dolorum optio ea officiis explicabo. Harum cum nesciunt recusandae
-          assumenda. Veritatis porro cum nesciunt nulla fuga magnam, minima nisi
-          hic quo nam non! Minima, debitis tenetur asperiores odio fuga dolorem
-          molestias, itaque fugit, non ex commodi ratione consequatur vero quos
-          nisi nam? Consequatur tempora voluptas corrupti, repudiandae labore
-          est, saepe atque, cumque nostrum sunt deserunt. Dolores sit
-          accusantium deserunt error velit inventore! Eius libero exercitationem
-          est doloremque in iure fugit deserunt quidem aspernatur hic eaque
-          aliquam doloribus cumque dolore deleniti eum error recusandae omnis
-          fugiat, explicabo optio! Voluptas mollitia provident quo beatae
-          consectetur rerum quasi nam! Officiis ad debitis mollitia quis
-          deleniti ex dolorum! Debitis voluptas, magnam perspiciatis nihil rem
-          consequuntur, nisi ipsam deserunt accusantium, porro similique quam
-          quaerat tempore reprehenderit et error esse repellat praesentium
-          maxime autem magni ratione voluptatibus delectus. Dolorem eaque
-          necessitatibus sit consequatur nisi et consequuntur illo corporis
-          assumenda nihil tenetur eveniet, illum vel unde quisquam hic possimus
-          quia obcaecati libero architecto! Quaerat eos ad qui voluptatibus quam
-          quis perspiciatis deleniti, illum velit iure corporis cum laboriosam
-          esse repellendus expedita veritatis! Cumque fugit omnis, libero atque,
+          distinctio rem porro assumenda
+        </p>{" "}
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis
+        id inventore modi, tempora repellat molestias dignissimos enim rem omnis
+        quas facilis, sit nesciunt harum maiores ducimus adipisci? Quos cum
+        facilis modi labore exercitationem, nemo veniam eaque ipsum ut maxime
+        earum quis dolor, pariatur illo nesciunt consequatur enim aliquid totam
+        beatae.
+        <p ref={experience}>
+          , eligendi, nemo hic soluta eos aliquam. Fugiat error praesentium cum
+          voluptate non nulla vero enim. Distinctio, totam eligendi. Explicabo
+          numquam nulla, aperiam repellendus deleniti ducimus vero cumque magnam
+          quas aspernatur autem molestiae accusantium suscipit, quis illum
+          voluptatibus! Perferendis ullam, error autem exercitationem sunt
+          corrupti modi eius omnis expedita totam quasi iure dicta, debitis
+          dolorem eligendi, quos ex nesciunt similique iste illo deserunt sit
+          rerum numquam? Ratione sequi architecto dolorum! Illo doloribus animi
+          minus, ullam ipsa labore officia deserunt nisi totam nesciunt quia
+          inventore deleniti odit magni, fugiat ipsum quod repellat? Quo dolore
+          ea magni commodi atque cumque, veritatis facilis, tempore dicta neque
+          qui blanditiis sequi autem aut sed pariatur id eaque! Quo vero
+          repellendus voluptas beatae perspiciatis amet minima perferendis
+          molestias laudantium veniam! Repellendus doloribus aliquam odit sint
+          voluptatibus voluptatem aperiam voluptas unde deleniti? Dicta
+          doloremque iste enim omnis alias asperiores illum, error aperiam
+          veniam eos impedit excepturi reprehenderit fugiat quaerat ea vero
+          suscipit odio at deleniti ratione quod. Rerum culpa minus autem labore
+          magni consequuntur nobis laudantium in incidunt deleniti
+          necessitatibus, corrupti nisi eius ratione. Repellat velit quidem
+          corrupti natus. Labore quae necessitatibus in deserunt repellat hic,
+          eius commodi officiis voluptates suscipit animi dolore nemo aut libero
+          cupiditate quisquam atque dolores! Commodi magni ut nihil aliquid
+          numquam libero non iure, voluptatem odio. Sunt voluptates voluptatibus
+          impedit dolore molestias quod ex assumenda aut odit doloribus? Dolorem
+          illum atque vel molestiae neque placeat iusto accusantium est ratione?
+          Amet doloribus atque unde exercitationem iste. Dolores illum
+          blanditiis eius voluptatum qui in amet perspiciatis ex dignissimos!
+          Labore, culpa. Error atque nesciunt sapiente aliquid sed provident
+          deserunt pariatur, ut perferendis? Debitis perspiciatis molestiae
+          minima rem voluptatibus voluptates accusantium hic totam delectus
+          fugit exercitationem saepe corporis deleniti aut quasi optio quis
+          assumenda, perferendis aliquam, repellat reiciendis sunt!
+          Exercitationem, laboriosam omnis minus sit corrupti dolores nostrum
+          sunt aliquid repellendus molestias nobis dolorum optio ea officiis
+          explicabo. Harum cum nesciunt recusandae assumenda. Veritatis porro
+          cum nesciunt nulla{" "}
+        </p>{" "}
+        fuga magnam, minima nisi hic quo nam non! Minima, debitis tenetur
+        asperiores odio fuga dolorem molestias, itaque fugit, non ex commodi
+        ratione consequatur vero quos nisi nam? Consequatur tempora voluptas
+        corrupti, repudiandae labore est, saepe atque, cumque nostrum sunt
+        deserunt. Dolores sit accusantium deserunt error velit inventore! Eius
+        libero exercitationem est doloremque in iure fugit deserunt quidem
+        aspernatur hic eaque aliquam doloribus cumque dolore deleniti eum error
+        recusandae omnis fugiat, explicabo optio! Voluptas mollitia provident
+        quo beatae consectetur rerum quasi nam! Officiis ad debitis mollitia
+        quis deleniti ex dolorum! Debitis voluptas, magnam perspiciatis nihil
+        rem consequuntur, nisi ipsam deserunt accusantium, porro similique quam
+        quaerat tempore reprehenderit et error esse repellat praesentium maxime
+        autem magni ratione voluptatibus delectus. Dolorem eaque necessitatibus
+        sit consequatur nisi et consequuntur illo corporis assumenda nihil
+        tenetur eveniet, illum vel unde quisquam hic possimus quia Lorem ipsum,
+        dolor sit amet consectetur adipisicing elit. Perspiciatis id inventore
+        modi, tempora repellat molestias dignissimos enim rem omnis quas
+        facilis, sit nesciunt harum maiores ducimus adipisci? Quos cum facilis
+        modi labore exercitationem, nemo veniam eaque ipsum ut maxime earum quis
+        dolor, pariatur illo nesciunt consequatur enim aliquid totam beatae.
+        <p ref={projects}>
+          {" "}
+          obcaecati libero architecto! Quaerat eos ad qui voluptatibus quam quis
+          perspiciatis deleniti, illum velit iure corporis cum laboriosam esse
+          repellendus expedita veritatis! Cumque fugit omnis, libero atque,
           tempora, nihil sequi unde sapiente totam obcaecati enim nobis!
           Voluptates maxime molestias non vitae distinctio, repudiandae alias
           quod et nemo sunt deleniti odio repellendus harum, cum iusto ipsa
