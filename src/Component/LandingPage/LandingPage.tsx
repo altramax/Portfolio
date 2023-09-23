@@ -7,39 +7,11 @@ import instagram from "../../Assets/images/instagram.svg";
 import twitter from "../../Assets/images/twitter.svg";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState, useRef } from "react";
 
 const LandingPage = (): JSX.Element => {
-  // const { ref: about, inView: aboutElement } = useInView();
-  // const { ref: experience, inView: experienceElement } = useInView();
-  // const { ref: projects, inView: projectsElement } = useInView();
-
-  const [current, setCurrent] = useState<string>("about");
-  const about = useRef<any>();
-  const experience = useRef<any>();
-  const projects = useRef<any>();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries, observer) => {
-      const entry = entries[0];
-      console.log("entry", entry);
-      console.log("entry.isIntersecting", entry.isIntersecting);
-    });
-
-    observer.observe(about.current);
-  }, []);
-
-  // useEffect(() => {
-  //   if (aboutElement === true && experienceElement === true) {
-  //     setCurrent("about");
-  //   } else if (experienceElement === true) {
-  //     setCurrent("experience");
-  //   } else if (projectsElement === true) {
-  //     setCurrent("projects");
-  //   } else {
-  //     setCurrent("");
-  //   }
-  // }, []);
+  const { ref: about, inView: aboutElement } = useInView();
+  const { ref: experience, inView: experienceElement } = useInView();
+  const { ref: projects, inView: projectsElement } = useInView();
 
   return (
     <LandingPageStyle>
@@ -59,7 +31,7 @@ const LandingPage = (): JSX.Element => {
           <div className="dot__container">
             <div
               className={`dot__group ${
-                current === "about" ? "--active" : "--inactive"
+                aboutElement === true ? "--active" : "--inactive"
               }`}
             >
               <div className="dot"></div>
@@ -69,7 +41,7 @@ const LandingPage = (): JSX.Element => {
           <div className="dot__container">
             <div
               className={`dot__group ${
-                current === "experience" ? "--active" : "--inactive"
+                experienceElement === true ? "--active" : "--inactive"
               }`}
             >
               <div className="dot"></div>
@@ -79,7 +51,7 @@ const LandingPage = (): JSX.Element => {
           <div className="dot__container">
             <div
               className={`dot__group ${
-                current === "projects" ? "--active" : "--inactive"
+                projectsElement === true ? "--active" : "--inactive"
               }`}
             >
               <div className="dot"></div>
@@ -158,7 +130,7 @@ const LandingPage = (): JSX.Element => {
           nihil quis? Ratione tempore culpa iusto neque laboriosam vero
           excepturi, iure voluptas aliquid qui deleniti dicta quasi ipsa
           distinctio rem porro assumenda
-        </p>{" "}
+        </p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis
         id inventore modi, tempora repellat molestias dignissimos enim rem omnis
         quas facilis, sit nesciunt harum maiores ducimus adipisci? Quos cum
@@ -202,30 +174,31 @@ const LandingPage = (): JSX.Element => {
           Exercitationem, laboriosam omnis minus sit corrupti dolores nostrum
           sunt aliquid repellendus molestias nobis dolorum optio ea officiis
           explicabo. Harum cum nesciunt recusandae assumenda. Veritatis porro
-          cum nesciunt nulla{" "}
-        </p>{" "}
-        fuga magnam, minima nisi hic quo nam non! Minima, debitis tenetur
-        asperiores odio fuga dolorem molestias, itaque fugit, non ex commodi
-        ratione consequatur vero quos nisi nam? Consequatur tempora voluptas
-        corrupti, repudiandae labore est, saepe atque, cumque nostrum sunt
-        deserunt. Dolores sit accusantium deserunt error velit inventore! Eius
-        libero exercitationem est doloremque in iure fugit deserunt quidem
-        aspernatur hic eaque aliquam doloribus cumque dolore deleniti eum error
-        recusandae omnis fugiat, explicabo optio! Voluptas mollitia provident
-        quo beatae consectetur rerum quasi nam! Officiis ad debitis mollitia
-        quis deleniti ex dolorum! Debitis voluptas, magnam perspiciatis nihil
-        rem consequuntur, nisi ipsam deserunt accusantium, porro similique quam
-        quaerat tempore reprehenderit et error esse repellat praesentium maxime
-        autem magni ratione voluptatibus delectus. Dolorem eaque necessitatibus
-        sit consequatur nisi et consequuntur illo corporis assumenda nihil
-        tenetur eveniet, illum vel unde quisquam hic possimus quia Lorem ipsum,
-        dolor sit amet consectetur adipisicing elit. Perspiciatis id inventore
-        modi, tempora repellat molestias dignissimos enim rem omnis quas
-        facilis, sit nesciunt harum maiores ducimus adipisci? Quos cum facilis
-        modi labore exercitationem, nemo veniam eaque ipsum ut maxime earum quis
-        dolor, pariatur illo nesciunt consequatur enim aliquid totam beatae.
+          cum nesciunt nulla </p>fuga magnam, minima nisi hic quo nam non! Minima,
+          debitis tenetur asperiores odio fuga dolorem molestias, itaque fugit,
+          non ex commodi ratione consequatur vero quos nisi nam? Consequatur
+          tempora voluptas corrupti, repudiandae labore est, saepe atque, cumque
+          nostrum sunt deserunt. Dolores sit accusantium deserunt error velit
+          inventore! Eius libero exercitationem est doloremque in iure fugit
+          deserunt quidem aspernatur hic eaque aliquam doloribus cumque dolore
+          deleniti eum error recusandae omnis fugiat, explicabo optio! Voluptas
+          mollitia provident quo beatae consectetur rerum quasi nam! Officiis ad
+          debitis mollitia quis deleniti ex dolorum! Debitis voluptas, magnam
+          perspiciatis nihil rem consequuntur, nisi ipsam deserunt accusantium,
+          porro similique quam quaerat tempore reprehenderit et error esse
+          repellat praesentium maxime autem magni ratione voluptatibus delectus.
+          Dolorem eaque necessitatibus sit consequatur nisi et consequuntur illo
+          corporis assumenda nihil tenetur eveniet, illum vel unde quisquam hic
+          possimus quia
+       
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis
+        id inventore modi, tempora repellat molestias dignissimos enim rem omnis
+        quas facilis, sit nesciunt harum maiores ducimus adipisci? Quos cum
+        facilis modi labore exercitationem, nemo veniam eaque ipsum ut maxime
+        earum quis dolor, pariatur illo nesciunt consequatur enim aliquid totam
+        beatae.
         <p ref={projects}>
-          {" "}
+        
           obcaecati libero architecto! Quaerat eos ad qui voluptatibus quam quis
           perspiciatis deleniti, illum velit iure corporis cum laboriosam esse
           repellendus expedita veritatis! Cumque fugit omnis, libero atque,
