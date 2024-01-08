@@ -37,7 +37,6 @@ const LandingPageStyle = styled.div`
     }
 
     .dot__container {
-      
       margin-top: 10px;
       // width: 100%;
 
@@ -47,7 +46,7 @@ const LandingPageStyle = styled.div`
         border-radius: 50%;
       }
 
-      .dot__group{
+      .dot__group {
         display: flex;
         justify-content: start;
         align-items: center;
@@ -75,6 +74,20 @@ const LandingPageStyle = styled.div`
         }
       }
     }
+  }
+
+  .project__container__box {
+    margin: 20px 0 40px 0;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .project__container__box:hover {
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.09);
+  }
+
+  .language__container {
+    margin-top: 10px;
+    display: flex;
   }
 
   @media ${mediaQuery.tablet} {
