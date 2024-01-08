@@ -100,9 +100,8 @@ const LandingPage = (): JSX.Element => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 3 }}
-          >
-            {renderDisplay()}
+            transition={{ duration: 1 }}
+          >{renderDisplay()}
           </motion.div>
         </AnimatePresence>
         {/* <div>
