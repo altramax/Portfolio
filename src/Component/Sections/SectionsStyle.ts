@@ -3,21 +3,22 @@ import mediaQuery from "../MediaQuery/MediaQuery";
 
 const SectionsStyle = styled.div`
   padding-top: 40px;
-  
-  .section__container{
+  height: 100%;
+
+  .section__container {
     width: 90%;
   }
 
-  ul {
+  .section__ul{
     margin: auto;
     list-style: none;
     display: flex;
     justify-content: space-between;
- 
+
     li {
       cursor: pointer;
       p {
-        color: #000;
+        color: #fff;
         font-weight: 600;
         padding: 10px;
       }
@@ -34,17 +35,18 @@ const SectionsStyle = styled.div`
   }
 
   @media ${mediaQuery.desktop} {
-    padding:0 50px 50px 50px;
+    padding: 0 50px 50px 50px;
     width: 50%;
-    position: relative;
+    // height: 100%;
+    // position: relative;
     //   width: 50%;
     margin-left: auto;
-    ul{
+    .section__ul {
       padding-top: 40px;
-      // background-color: #4C4A50;
-
       position: sticky;
+
       top: 0;
+      background-color: #4C4A50;
     }
   }
 `;

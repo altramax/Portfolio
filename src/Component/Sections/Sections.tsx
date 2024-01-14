@@ -26,7 +26,7 @@ const Sections = () => {
   return (
    <SectionsStyle>
       <div className="section__container">
-        <ul>
+        <ul className="section__ul">
           <li
             onClick={() => {
               selectorHandler("aboutMe");
