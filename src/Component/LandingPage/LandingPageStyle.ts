@@ -30,7 +30,7 @@ const LandingPageStyle = styled.div`
   }
 
   @media ${mediaQuery.desktop} {
-    background-color: #fff;
+    // background-color: #fff;
     position: relative;
     overflow: hidden;
     padding: 0;
