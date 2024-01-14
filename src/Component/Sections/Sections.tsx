@@ -26,13 +26,13 @@ const Sections = () => {
   return (
    <SectionsStyle>
       <div className="section__container">
-        <ul>
+        <ul className="section__ul">
           <li
             onClick={() => {
               selectorHandler("aboutMe");
             }}
           >
-            <p>About</p>
+            <p className={selectedPath === "aboutMe" ? "active" : ""}>About</p>
             {selectedPath === "aboutMe" ? (
               <motion.div className='underline' layoutId='underline' />
             ) : null}
@@ -42,7 +42,7 @@ const Sections = () => {
               selectorHandler("experience");
             }}
           >
-            <p> Experience</p>
+            <p  className={selectedPath === "experience" ? "active" : ""}> Experience</p>
             {selectedPath === "experience" ? (
               <motion.div className='underline' layoutId='underline' />
             ) : null}
@@ -52,7 +52,7 @@ const Sections = () => {
               selectorHandler("projects");
             }}
           >
-            <p>Projects</p>
+            <p  className={selectedPath === "underline" ? "active" : ""}>Projects</p>
             {selectedPath === "projects" ? (
               <motion.div className='underline' layoutId='underline' />
             ) : null}
