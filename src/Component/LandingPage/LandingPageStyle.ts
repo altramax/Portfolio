@@ -2,7 +2,7 @@ import styled from "styled-components";
 import mediaQuery from "../MediaQuery/MediaQuery";
 
 const LandingPageStyle = styled.div`
-  background-color: #CADCFC;
+  background-color: #fff;
   font-family: "Montserrat", sans-serif;
   padding: 40px 40px;
   min-height: 100vh;

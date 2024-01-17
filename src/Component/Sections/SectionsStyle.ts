@@ -32,7 +32,7 @@ const SectionsStyle = styled.div`
     right: 0;
     background: red;
     height: 2px;
-    background-color: #DF3C5F;
+    background-color: #8AB6F9;
   }
 
   .active{

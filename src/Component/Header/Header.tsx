@@ -29,6 +29,15 @@ const Header = () => {
         </div>
 
         <div className='socials__container'>
+        <Link
+            to={"https://instagram.com/ezekielajayi_?igshid=OGQ5ZDc2ODk2ZA=="}
+            target='_blank'
+            className="linkedin__container"
+          >
+            <img src={linkedin} alt='' className="linkedin"/>
+            <img src={linkedincolor} alt=''  className="linkedincolor"/>
+
+          </Link>
           <Link to={"https://github.com/altramax"} target='_blank' className="git__container">
             <img src={github} alt='' className="git" />
             <img src={githubColor} alt='' className="gitcolor" />
@@ -47,15 +56,7 @@ const Header = () => {
             <img src={instagramColor} alt=''  className="instagramcolor" />
 
           </Link>
-          <Link
-            to={"https://instagram.com/ezekielajayi_?igshid=OGQ5ZDc2ODk2ZA=="}
-            target='_blank'
-            className="linkedin__container"
-          >
-            <img src={linkedin} alt='' className="linkedin"/>
-            <img src={linkedincolor} alt=''  className="linkedincolor"/>
-
-          </Link>
+         
         </div>
       </div>
     </HeaderStyle>

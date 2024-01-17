@@ -5,7 +5,7 @@ const HeaderStyle = styled.div`
   margin: auto;
   z-index: 1;
   //   background-color: red;
-  // background-color: #D9B4A7;
+  background-color: #D9B4A7;
 
   .header__container {
     display: flex;
@@ -33,7 +33,7 @@ const HeaderStyle = styled.div`
       text-align: center;
       width: 70%;
       margin: auto;
-      font-size: 14px;
+      font-size: 15px;
     }
   }
 
