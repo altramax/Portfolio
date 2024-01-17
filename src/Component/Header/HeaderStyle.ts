@@ -4,8 +4,8 @@ import mediaQuery from "../MediaQuery/MediaQuery";
 const HeaderStyle = styled.div`
   margin: auto;
   z-index: 1;
-  //   background-color: red;
-  // background-color: #D9B4A7;
+ padding: 40px 20px;
+  background-color: #D9B4A7;
 
   .header__container {
     display: flex;
@@ -20,10 +20,7 @@ const HeaderStyle = styled.div`
       width: 100%;
       border-radius: 20px;
     }
-    h2 {
-      margin: 10px auto 0 auto;
-      width: fit-content;
-    }
+   
   }
 
   .name__container {
@@ -31,9 +28,13 @@ const HeaderStyle = styled.div`
     p {
       margin-top: 8px;
       text-align: center;
-      width: 70%;
+      width: 90%;
       margin: auto;
-      font-size: 14px;
+      font-size: 15px;
+      span{
+      //  font-size: 20px;
+       font-weight: 600;
+      }
     }
   }
 
@@ -103,7 +104,7 @@ const HeaderStyle = styled.div`
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    width: 50%;
+    width: 45%;
     // .header__container{
     // width: 80%;
 

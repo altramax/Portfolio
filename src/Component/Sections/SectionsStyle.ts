@@ -2,11 +2,11 @@ import styled from "styled-components";
 import mediaQuery from "../MediaQuery/MediaQuery";
 
 const SectionsStyle = styled.div`
-  padding-top: 40px;
+  padding: 40px 20px;
   height: 100%;
 
   .section__container {
-    width: 90%;
+    width: 100%;
   }
 
   .section__ul{
@@ -32,7 +32,7 @@ const SectionsStyle = styled.div`
     right: 0;
     background: red;
     height: 2px;
-    background-color: #DF3C5F;
+    background-color: #8AB6F9;
   }
 
   .active{
@@ -42,7 +42,7 @@ const SectionsStyle = styled.div`
 
   @media ${mediaQuery.desktop} {
     padding: 0 50px 50px 50px;
-    width: 50%;
+    width: 55%;
     // height: 100%;
     // position: relative;
     //   width: 50%;
